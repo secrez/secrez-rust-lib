@@ -33,9 +33,9 @@
     "nyc": "^15.1.0"
   },
   "scripts": {
-    "install": "source .env && node-pre-gyp install --fallback-to-build=false || neon build --release",
-    "package": "source .env && node-pre-gyp package",
-    "upload-binary": "source .env && node-pre-gyp package && node-pre-gyp-github publish",
+    "install": "node-pre-gyp install --fallback-to-build=false || neon build --release",
+    "package": "node-pre-gyp package",
+    "upload-binary": "node-pre-gyp package && node-pre-gyp-github publish",
     "lint": "eslint -c .eslintrc 'lib/**/*.js' 'test/**/*.js'",
     "all-tests": "find test/** -name '*.test.js' | xargs ./node_modules/.bin/mocha -R spec",
     "test-only": "cross-env NODE_ENV=test ./node_modules/.bin/mocha test/*.test.js test/**/*.test.js --exit",

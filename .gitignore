@@ -1,4 +1,5 @@
-target
+/native/target
+/native/index.node
 
 # dependencies
 node_modules

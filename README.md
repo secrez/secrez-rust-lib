@@ -6,6 +6,10 @@ Secrez has been created to handle small files. However, some users are using it 
 
 It does not make much sense to use it outside Secrez.  
 
+## How to use it
+
+
+
 ## TODO
 
 Adding more primitives if it works well enough :-)

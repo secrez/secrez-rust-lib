@@ -5,8 +5,11 @@
   "main": "lib/index.js",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/secrez/secrez.git"
+    "url": "git+https://github.com/secrez/secrez-rust-lib.git"
   },
+  "files": [
+    "lib"
+  ],
   "author": {
     "name": "Francesco Sullo",
     "email": "francesco@sullo.co"
@@ -25,10 +28,14 @@
     "eslint": "^6.8.0",
     "eslint-plugin-node": "^11.1.0",
     "mocha": "^7.1.2",
+    "node-pre-gyp": "^0.17.0",
+    "node-pre-gyp-github": "^1.4.3",
     "nyc": "^15.1.0"
   },
   "scripts": {
-    "install": "neon build",
+    "install": "source .env && node-pre-gyp install --fallback-to-build=false || neon build --release",
+    "package": "source .env && node-pre-gyp package",
+    "upload-binary": "source .env && node-pre-gyp package && node-pre-gyp-github publish",
     "lint": "eslint -c .eslintrc 'lib/**/*.js' 'test/**/*.js'",
     "all-tests": "find test/** -name '*.test.js' | xargs ./node_modules/.bin/mocha -R spec",
     "test-only": "cross-env NODE_ENV=test ./node_modules/.bin/mocha test/*.test.js test/**/*.test.js --exit",
@@ -37,5 +44,13 @@
   },
   "publishConfig": {
     "access": "public"
+  },
+  "binary": {
+    "module_name": "index",
+    "host": "https://github.com/secrez/secrez-rust-lib/releases/download/",
+    "remote_path": "{version}",
+    "package_name": "{node_abi}-{platform}-{arch}.tar.gz",
+    "module_path": "./native",
+    "pkg_path": "."
   }
 }

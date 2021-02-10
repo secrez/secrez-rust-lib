@@ -23,18 +23,18 @@ __0.0.2__
 ## Coverage
 
 ```
-> @secrez/rust-lib@0.0.2 test
-> cross-env NODE_ENV=test nyc --reporter=lcov --reporter=text ./node_modules/.bin/_mocha test/*.test.js test/**/*.test.js --exit
-
-
-
   #RustLib
-    ✓ should encrypt and decrypt a string
-    ✓ should encrypt in JS and decrypt in Rust
-    ✓ should encrypt in Rust and decrypt in JS
+    encrypt and decrypt in JS
+      ✓ should signup the user and signin (81ms)
+    encrypt in Rust and decrypt in JS
+      ✓ should signup the user and signin
+    encrypt in JS and decrypt in Rust
+      ✓ should signup the user and signin
+    encrypt and decrypt in Rust
+      ✓ should signup the user and signin (47ms)
 
 
-  3 passing (12ms)
+  4 passing (198ms)
 
 ----------|---------|----------|---------|---------|-------------------
 File      | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
@@ -43,8 +43,6 @@ All files |     100 |      100 |     100 |     100 |
  index.js |     100 |      100 |     100 |     100 |                   
 ----------|---------|----------|---------|---------|-------------------
 
-> @secrez/rust-lib@0.0.2 posttest
-> nyc check-coverage --statements 99 --branches 90 --functions 99 --lines 99
 ```
 
 ## Copyright

@@ -4,7 +4,9 @@ A Rust crypto library for Secrez.
 
 Secrez has been created to handle small files. However, some users are using it also for long documents complaining about the speed. To solve this problem we added this module that uses sodiumoxide in Rust to encrypt and decrypt the data. 
 
-It does not make much sense to use it outside Secrez.  
+It does not make much sense to use it outside Secrez.
+
+**PS > After extensively testing it with large docs in Secrez, I realized that Rust/Sodiumoxide is as fast as JS/TweetNaCl. In some case, it is even slower because of type conversions unnecessary in JS. For this reason, I am leaving this library here as an interesting experiment, but I won't use it in Secrez.**
 
 ## How to use it
 
